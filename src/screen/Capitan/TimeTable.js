@@ -9,11 +9,11 @@ import {TimeTableComponent} from '../../component/TimeTableComponent'
 import {data} from '../../data/data'
 
 export const TimeTable = () => {
-    const [isPressed, setIsPressed] = React.useState(null)
+    const [isPressed, setIsPressed] = React.useState('')
 
     const pressed = () => {
         return(
-            <View>
+            <View style={{flex:1}}> 
                 <View style={{flexDirection:'row', justifyContent:'center', width:'100%'}}>
                     <TouchableOpacity style={styles.touch} onPress={() => {setIsPressed('')}}>
                         <Text style={styles.text}>Из Якутска</Text>
@@ -31,11 +31,20 @@ export const TimeTable = () => {
             </View>
         )
     }
-    const nonpressed = () => {
+    const nonpressed = () => { 
         return(
             <View style={{flex:1}}>
-                <View style={{flexDirection:'row', justifyContent:'center', width:'100%'}}>
-                    <TouchableOpacity style={styles.touch2} onPress={() => setIsPressed('')}>
+                <View style={{flexDirection:'row', 
+                              justifyContent:'center', 
+                              width:'100%'
+                      }}
+                >
+                    <TouchableOpacity 
+                      style={styles.touch2} 
+                      onPress={() => 
+                        setIsPressed('')
+                      }
+                    >
                         <Text style={styles.text2}>Из Якутска</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.touch} onPress={() => setIsPressed(null)}>
@@ -60,42 +69,43 @@ export const TimeTable = () => {
 }
 
 const styles=StyleSheet.create({
-    main:{
-        alignItems:'center'
-    },
-    touch:{
-        marginTop:5,
-        marginBottom:35,
-        borderColor:'#479ED8',
-        borderWidth:1,
-        borderRadius:5,
-        paddingHorizontal:5,
-        width:'46%',
-        alignItems:'center',
-        backgroundColor:'#479ED8'
-    },
-    touch2:{
-            marginTop:5,
-            marginBottom:35,
-            borderColor:'#479ED8',
-            borderWidth:1,
-            borderRadius:5,
-            paddingHorizontal:5,
-            width:'46%',
-            alignItems:'center',
-            backgroundColor:'#fff'
-    },
-    text:{
-        fontSize:17,
-        color:'#fff'
-    },
-    text2:{
-        fontSize:17,
-        color:'#479ED8'
-    },
-    flatlist:{
-        flex:1,
-        width:'100%'
-    }
+  touch:{
+    marginTop:5,
+    marginBottom:35,
+    borderColor:'#479ED8',
+    borderWidth:1,
+    borderRadius:5,
+    paddingHorizontal:5,
+    width:'46%',
+    alignItems:'center',
+    justifyContent:'center', 
+    backgroundColor:'#479ED8',
+    padding:5
+  },
+  touch2:{
+    marginTop:5,
+    marginBottom:35,
+    borderColor:'#479ED8',
+    borderWidth:1,
+    borderRadius:5,
+    paddingHorizontal:5,
+    width:'46%',
+    alignItems:'center', 
+    justifyContent:'center',
+    backgroundColor:'#fff',
+    padding:5
+  },
+  text:{
+    fontSize:17,
+    color:'#fff'
+  },
+  text2:{
+    fontSize:17,
+    color:'#479ED8'
+  },
+  flatlist:{
+    flex:1,
+    width:'100%'
+  }
 
 })

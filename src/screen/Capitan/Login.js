@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {View, TouchableOpacity, Text, StyleSheet, TextInput, Keyboard} from 'react-native'
 
-export const Login=() => {
+export const Login=({navigation}) => {
     return(
         <TouchableOpacity style={{flex: 1}} onPress={() => {
             Keyboard.dismiss()
@@ -13,7 +13,10 @@ export const Login=() => {
                         placeholder="Логин"/>
                     <TextInput style= {styles.textinput}
                                             placeholder="Пароль"/>
-                    <TouchableOpacity style={styles.button2}>
+                    <TouchableOpacity 
+                      style={styles.button2}
+                      onPress={() => {navigation.navigate('TimeTable')}}
+                    >
                         <Text style={styles.text}>
                             Войти
                         </Text>

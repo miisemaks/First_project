@@ -4,79 +4,82 @@ import {View,
         StyleSheet,
         TouchableOpacity,
         ScrollView,
-        Dimensions
         } from 'react-native'
 
-const widthWindow = Dimensions.get('window').width 
-const heightWindow = Dimensions.get('window').height
+
 
 export const TimeTableComponent = ({data}) => {
     return(
-      <ScrollView 
-        style={styles.scrollview}
-        horizontal={true} 
-        showsHorizontalScrollIndicator={false} 
-      >
-        <View style={styles.submain}> 
-          <TouchableOpacity style={styles.touchChange}>
-            <Text style={styles.touchText}>Изменить</Text>
-          </TouchableOpacity>
-          <View style={styles.mainTextView}>
-            <View style={styles.textView}>
-              <Text style={styles.text}>Отплытие</Text>
-              <Text style={styles.text}>Причал</Text>
-              <Text style={styles.text}>Паром</Text>
-            </View>
-            <View style={styles.textView}>
-              <Text style={styles.text}>{data.date1}</Text>
-              <Text style={styles.text}>{data.dock1}</Text>
-              <Text style={styles.text}>{data.parom}</Text> 
-            </View>
-          </View>
-          <TouchableOpacity style={styles.touchCancel}>
-            <Text style={styles.touchText}>Отменить</Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+
+            <ScrollView
+                style={styles.scrollview}
+                horizontal={true}
+
+            >
+                <View style={{flexDirection:'row'}}>
+                    <TouchableOpacity style={styles.touchChange}>
+                        <Text>Изменить</Text>
+                    </TouchableOpacity>
+                    <View style={{flex:1}}>
+                        <View style={{flexDirection:'row', flex:1}}>
+                            <View style={styles.viewText}>
+                                <Text>Отплытие</Text>
+                            </View>
+                            <View style={styles.viewText}>
+                                <Text>Причал</Text>
+                            </View>
+                            <View style={styles.viewText}>
+                                <Text>Паром</Text>
+                            </View>
+                        </View>
+                        <View style={{flexDirection:'row'}}>
+                            <View style={styles.viewText}>
+                                <Text>{data.date1}</Text>
+                            </View>
+                            <View style={styles.viewText}>
+                                <Text>{data.dock1}</Text>
+                            </View>
+                            <View style={styles.viewText}>
+                                <Text>{data.parom}</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <TouchableOpacity style={styles.touchCancel}>
+                        <Text>Отменить</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
     )
 }
 
 const styles=StyleSheet.create({
+    main:{
+        flex:1,
+        width:'100%',
+        borderBottomWidth:1,
+        borderBottomColor:'#E6E6E6'
+    },
     scrollview:{
-       marginTop:2 
+        width:'60%',
+        flex:1,
+        backgroundColor:'skyblue'
     },
-    submain:{
-      flexDirection:'row',
-      borderBottomWidth:1,
-      borderBottomColor:'grey'
-    },
-    textView:{
-      flexDirection:'row',
-      justifyContent:'space-around' 
-    },
-    text:{
-      justifyContent:'center', 
-      alignItems:'center',
-      padding:3, 
+    viewText:{
+        flex:1,
+        width:'30%',
+        justifyContent:'space-around',
+        alignItems:'center'
     },
     touchChange:{
-      flex:1,
-      backgroundColor:'#ABABAB',
-      justifyContent:'center',
-      alignItems:'center'
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'#ABABAB'
     },
-    touchText:{
-      color:'#fff',
-      paddingHorizontal:3 
-    },
-    touchCancel:{ 
-      flex:1,
-      backgroundColor:'red',
-      justifyContent:'center',
-      alignItems:'center'
-    },
-    mainTextView:{
-      flex:1, 
-      width:widthWindow+10 
+    touchCancel:{
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:'red'
     }
 })

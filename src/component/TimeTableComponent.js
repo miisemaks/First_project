@@ -44,6 +44,7 @@ export const TimeTableComponent = ({data}) => {
                             </View>
                         </View>
                     </View>
+                    <Text>frg</Text>
                     <TouchableOpacity style={styles.touchCancel}>
                         <Text>Отменить</Text>
                     </TouchableOpacity>
